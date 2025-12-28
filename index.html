@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정령 레벨업 비용 계산기</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .gold-text {
+            color: #FFD700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        .input-field {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 8px;
+            padding: 10px;
+            width: 100%;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+        .result-card {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid #FFD700;
+            border-radius: 12px;
+            padding: 16px;
+            margin: 10px 0;
+        }
+        .credit-footer {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            margin-top: 40px;
+        }
+        .credit-footer a {
+            color: #FFD700;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .credit-footer a:hover {
+            color: #FFA500;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="p-4">
+    <div class="container mx-auto max-w-4xl">
+        <h1 class="text-4xl font-bold text-center mb-8 gold-text">⚔️ 정령 레벨업 비용 계산기</h1>
+        
+        <div class="glass-card p-6 mb-6">
+            <h2 class="text-2xl font-bold text-white mb-4">📊 정령 정보 입력</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                <div>
+                    <label class="text-white block mb-2">현재 레벨</label>
+                    <select id="currentLevel" class="input-field">
+                        <option value="">선택하세요</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="text-white block mb-2">현재 EXP</label>
+                    <input type="number" id="currentExp" class="input-field" min="0" value="0" placeholder="0">
+                    <p class="text-xs text-gray-400 mt-1">최대: <span id="maxExpInfo">-</span></p>
+                </div>
+                
+                <div>
+                    <label class="text-white block mb-2">목표 레벨</label>
+                    <select id="targetLevel" class="input-field">
+                        <option value="">선택하세요</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card p-6 mb-6">
+            <h2 class="text-2xl font-bold text-white mb-4">💰 시세 입력 (선택)</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="text-white block mb-2">에테르 시세 (골드)</label>
+                    <input type="number" id="etherPrice" class="input-field" min="0" placeholder="예: 5000">
+                </div>
+                
+                <div>
+                    <label class="text-white block mb-2">스피튬 시세 (골드)</label>
+                    <input type="number" id="spitumPrice" class="input-field" min="0" placeholder="예: 10000">
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card p-6">
+            <h2 class="text-2xl font-bold gold-text mb-4">📈 계산 결과</h2>
+            
+            <div id="results" class="space-y-4">
+                <div class="result-card">
+                    <div class="flex justify-between items-center">
+                        <span class="text-white text-lg">필요 스피먼트</span>
+                        <span class="gold-text text-2xl font-bold" id="resultSpiment">-</span>
+                    </div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="flex justify-between items-center">
+                        <span class="text-white text-lg">필요 에테르</span>
+                        <span class="gold-text text-2xl font-bold" id="resultEther">-</span>
+                    </div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="flex justify-between items-center">
+                        <span class="text-white text-lg">필요 스피튬</span>
+                        <span class="gold-text text-2xl font-bold" id="resultSpitum">-</span>
+                    </div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="flex justify-between items-center">
+                        <span class="text-white text-lg">레벨업 골드</span>
+                        <span class="gold-text text-2xl font-bold" id="resultGold">-</span>
+                    </div>
+                </div>
+                
+                <div class="result-card" id="etherGoldCard" style="display: none;">
+                    <div class="flex justify-between items-center">
+                        <span class="text-white text-lg">에테르 환산 골드</span>
+                        <span class="gold-text text-2xl font-bold" id="resultEtherGold">-</span>
+                    </div>
+                </div>
+                
+                <div class="result-card" id="spitumGoldCard" style="display: none;">
+                    <div class="flex justify-between items-center">
+                        <span class="text-white text-lg">스피튬 환산 골드</span>
+                        <span class="gold-text text-2xl font-bold" id="resultSpitumGold">-</span>
+                    </div>
+                </div>
+                
+                <div class="result-card" style="background: rgba(255, 215, 0, 0.2); border: 3px solid #FFD700;">
+                    <div class="flex justify-between items-center">
+                        <span class="text-white text-xl font-bold">💰 통합 총 비용</span>
+                        <span class="gold-text text-3xl font-bold" id="resultTotal">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="credit-footer">
+        <div>제작 : 밀떡밀떡</div>
+        <div>자료참고 : <a href="https://cafe.naver.com/sclod12/492172?art=aW50ZXJuYWwtY2FmZS1hcnRpY2xlLXJlYWQtc2hhcmUtbGluaw.eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjYWZlVHlwZSI6IkNBRkVfSUQiLCJhcnRpY2xlSWQiOjQ5MjE3MiwiaXNzdWVkQXQiOjE3NjY5NDc0Mjk4NzksImNhZmVJZCI6MTM0MzQwMDh9.0fz_7ILNtaSWSdWEehE-vP-Z7OY1KZAlPZrQysXwYuA" target="_blank">수이교 님 자료</a></div>
+    </div>
+
+    <script>
+        const spiritData = [
+            {level:1, spiment:200, ether:1, gold:{r17:1000000,r8:2000000,r9:4000000,r10:8000000}, spitum:1, exp:8},
+            {level:2, spiment:200, ether:1, gold:{r17:1000000,r8:2000000,r9:4000000,r10:8000000}, spitum:2, exp:8},
+            {level:3, spiment:200, ether:1, gold:{r17:1000000,r8:2000000,r9:4000000,r10:8000000}, spitum:3, exp:8},
+            {level:4, spiment:200, ether:1, gold:{r17:1000000,r8:2000000,r9:4000000,r10:8000000}, spitum:4, exp:8},
+            {level:5, spiment:200, ether:1, gold:{r17:1000000,r8:2000000,r9:4000000,r10:8000000}, spitum:5, exp:8},
+            {level:6, spiment:200, ether:1, gold:{r17:2000000,r8:4000000,r9:8000000,r10:16000000}, spitum:6, exp:8},
+            {level:7, spiment:200, ether:1, gold:{r17:2000000,r8:4000000,r9:8000000,r10:16000000}, spitum:7, exp:8},
+            {level:8, spiment:200, ether:1, gold:{r17:2000000,r8:4000000,r9:8000000,r10:16000000}, spitum:7, exp:8},
+            {level:9, spiment:200, ether:1, gold:{r17:2000000,r8:4000000,r9:8000000,r10:16000000}, spitum:7, exp:8},
+            {level:10, spiment:200, ether:1, gold:{r17:2000000,r8:4000000,r9:8000000,r10:16000000}, spitum:7, exp:8},
+            {level:11, spiment:300, ether:2, gold:{r17:3000000,r8:6000000,r9:12000000,r10:24000000}, spitum:8, exp:16},
+            {level:12, spiment:300, ether:2, gold:{r17:3000000,r8:6000000,r9:12000000,r10:24000000}, spitum:8, exp:16},
+            {level:13, spiment:300, ether:2, gold:{r17:3000000,r8:6000000,r9:12000000,r10:24000000}, spitum:8, exp:16},
+            {level:14, spiment:300, ether:2, gold:{r17:3000000,r8:6000000,r9:12000000,r10:24000000}, spitum:8, exp:16},
+            {level:15, spiment:300, ether:2, gold:{r17:3000000,r8:6000000,r9:12000000,r10:24000000}, spitum:8, exp:16},
+            {level:16, spiment:300, ether:2, gold:{r17:4000000,r8:8000000,r9:16000000,r10:32000000}, spitum:8, exp:16},
+            {level:17, spiment:300, ether:2, gold:{r17:4000000,r8:8000000,r9:16000000,r10:32000000}, spitum:8, exp:16},
+            {level:18, spiment:300, ether:2, gold:{r17:4000000,r8:8000000,r9:16000000,r10:32000000}, spitum:8, exp:16},
+            {level:19, spiment:300, ether:2, gold:{r17:4000000,r8:8000000,r9:16000000,r10:32000000}, spitum:8, exp:16},
+            {level:20, spiment:300, ether:2, gold:{r17:4000000,r8:8000000,r9:16000000,r10:32000000}, spitum:8, exp:16},
+            {level:21, spiment:300, ether:2, gold:{r17:5000000,r8:10000000,r9:20000000,r10:40000000}, spitum:10, exp:32},
+            {level:22, spiment:300, ether:2, gold:{r17:5000000,r8:10000000,r9:20000000,r10:40000000}, spitum:10, exp:32},
+            {level:23, spiment:300, ether:2, gold:{r17:5000000,r8:10000000,r9:20000000,r10:40000000}, spitum:10, exp:32},
+            {level:24, spiment:300, ether:2, gold:{r17:5000000,r8:10000000,r9:20000000,r10:40000000}, spitum:10, exp:32},
+            {level:25, spiment:300, ether:2, gold:{r17:5000000,r8:10000000,r9:20000000,r10:40000000}, spitum:10, exp:32},
+            {level:26, spiment:300, ether:2, gold:{r17:6000000,r8:12000000,r9:24000000,r10:48000000}, spitum:10, exp:32},
+            {level:27, spiment:300, ether:2, gold:{r17:6000000,r8:12000000,r9:24000000,r10:48000000}, spitum:10, exp:32},
+            {level:28, spiment:300, ether:2, gold:{r17:6000000,r8:12000000,r9:24000000,r10:48000000}, spitum:10, exp:32},
+            {level:29, spiment:300, ether:2, gold:{r17:6000000,r8:12000000,r9:24000000,r10:48000000}, spitum:10, exp:32},
+            {level:30, spiment:400, ether:3, gold:{r17:6000000,r8:12000000,r9:24000000,r10:48000000}, spitum:10, exp:32},
+            {level:31, spiment:400, ether:3, gold:{r17:7000000,r8:14000000,r9:28000000,r10:56000000}, spitum:12, exp:48},
+            {level:32, spiment:400, ether:3, gold:{r17:7000000,r8:14000000,r9:28000000,r10:56000000}, spitum:12, exp:48},
+            {level:33, spiment:400, ether:3, gold:{r17:7000000,r8:14000000,r9:28000000,r10:56000000}, spitum:12, exp:48},
+            {level:34, spiment:400, ether:3, gold:{r17:7000000,r8:14000000,r9:28000000,r10:56000000}, spitum:12, exp:48},
+            {level:35, spiment:400, ether:3, gold:{r17:7000000,r8:14000000,r9:28000000,r10:56000000}, spitum:12, exp:48},
+            {level:36, spiment:400, ether:3, gold:{r17:8000000,r8:16000000,r9:32000000,r10:64000000}, spitum:12, exp:48},
+            {level:37, spiment:400, ether:3, gold:{r17:8000000,r8:16000000,r9:32000000,r10:64000000}, spitum:12, exp:48},
+            {level:38, spiment:400, ether:3, gold:{r17:8000000,r8:16000000,r9:32000000,r10:64000000}, spitum:12, exp:48},
+            {level:39, spiment:400, ether:3, gold:{r17:8000000,r8:16000000,r9:32000000,r10:64000000}, spitum:12, exp:48},
+            {level:40, spiment:400, ether:3, gold:{r17:8000000,r8:16000000,r9:32000000,r10:64000000}, spitum:12, exp:48},
+            {level:41, spiment:400, ether:3, gold:{r17:9000000,r8:18000000,r9:36000000,r10:72000000}, spitum:14, exp:64},
+            {level:42, spiment:400, ether:3, gold:{r17:9000000,r8:18000000,r9:36000000,r10:72000000}, spitum:14, exp:64},
+            {level:43, spiment:400, ether:3, gold:{r17:9000000,r8:18000000,r9:36000000,r10:72000000}, spitum:14, exp:64},
+            {level:44, spiment:400, ether:3, gold:{r17:9000000,r8:18000000,r9:36000000,r10:72000000}, spitum:14, exp:64},
+            {level:45, spiment:400, ether:3, gold:{r17:9000000,r8:18000000,r9:36000000,r10:72000000}, spitum:14, exp:64},
+            {level:46, spiment:400, ether:3, gold:{r17:10000000,r8:20000000,r9:40000000,r10:80000000}, spitum:14, exp:64},
+            {level:47, spiment:400, ether:3, gold:{r17:10000000,r8:20000000,r9:40000000,r10:80000000}, spitum:14, exp:64},
+            {level:48, spiment:400, ether:3, gold:{r17:10000000,r8:20000000,r9:40000000,r10:80000000}, spitum:14, exp:64},
+            {level:49, spiment:400, ether:3, gold:{r17:10000000,r8:20000000,r9:40000000,r10:80000000}, spitum:14, exp:64},
+            {level:50, spiment:400, ether:3, gold:{r17:10000000,r8:20000000,r9:40000000,r10:80000000}, spitum:14, exp:64}
+        ];
+
+        function formatNumber(num) {
+            return num.toLocaleString('ko-KR');
+        }
+
+        function formatGold(gold) {
+            if (gold >= 100000000) {
+                return formatNumber(gold) + ' (' + (gold / 100000000).toFixed(2) + '억)';
+            } else if (gold >= 10000) {
+                return formatNumber(gold) + ' (' + (gold / 10000).toFixed(1) + '만)';
+            }
+            return formatNumber(gold);
+        }
+
+        function initLevelDropdowns() {
+            const currentLevel = document.getElementById('currentLevel');
+            const targetLevel = document.getElementById('targetLevel');
+            
+            for (let i = 1; i <= 50; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = i;
+                currentLevel.appendChild(option);
+            }
+
+            for (let i = 2; i <= 51; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = i === 51 ? '51 (50레벨 만렙)' : i;
+                targetLevel.appendChild(option);
+            }
+        }
+
+        function updateMaxExp() {
+            const currentLevel = parseInt(document.getElementById('currentLevel').value);
+            if (currentLevel && currentLevel >= 1 && currentLevel <= 50) {
+                const data = spiritData[currentLevel - 1];
+                document.getElementById('maxExpInfo').textContent = data.exp - 1;
+                document.getElementById('currentExp').max = data.exp - 1;
+            } else {
+                document.getElementById('maxExpInfo').textContent = '-';
+            }
+        }
+
+        function calculate() {
+            const currentLevel = parseInt(document.getElementById('currentLevel').value);
+            const currentExp = parseInt(document.getElementById('currentExp').value) || 0;
+            const targetLevel = parseInt(document.getElementById('targetLevel').value);
+            const etherPrice = parseFloat(document.getElementById('etherPrice').value) || 0;
+            const spitumPrice = parseFloat(document.getElementById('spitumPrice').value) || 0;
+
+            if (!currentLevel || !targetLevel || targetLevel <= currentLevel) {
+                return;
+            }
+
+            let totalSpiment = 0, totalEther = 0, totalSpitum = 0, totalGold = 0;
+
+            for (let lv = currentLevel; lv < targetLevel; lv++) {
+                const data = spiritData[lv - 1];
+                const startExp = (lv === currentLevel) ? currentExp : 0;
+
+                for (let e = startExp + 1; e <= data.exp; e++) {
+                    totalSpiment += data.spiment;
+                    totalEther += data.ether;
+
+                    if (e <= 7) {
+                        totalGold += data.gold.r17;
+                    } else if (e === 8) {
+                        totalGold += data.gold.r8;
+                    } else if (e === 9) {
+                        totalGold += data.gold.r9;
+                    } else {
+                        totalGold += data.gold.r10;
+                    }
+                }
+
+                const lastExpGold = (data.exp <= 7) ? data.gold.r17 :
+                                    (data.exp === 8) ? data.gold.r8 :
+                                    (data.exp === 9) ? data.gold.r9 : data.gold.r10;
+                totalSpitum += data.spitum;
+                totalGold += lastExpGold * data.spitum;
+            }
+
+            document.getElementById('resultSpiment').textContent = formatNumber(totalSpiment) + ' 개';
+            document.getElementById('resultEther').textContent = formatNumber(totalEther) + ' 개';
+            document.getElementById('resultSpitum').textContent = formatNumber(totalSpitum) + ' 개';
+            document.getElementById('resultGold').textContent = formatGold(totalGold);
+
+            let totalCost = totalGold;
+
+            if (etherPrice > 0) {
+                const etherGold = totalEther * etherPrice;
+                document.getElementById('resultEtherGold').textContent = formatGold(etherGold);
+                document.getElementById('etherGoldCard').style.display = 'block';
+                totalCost += etherGold;
+            } else {
+                document.getElementById('etherGoldCard').style.display = 'none';
+            }
+
+            if (spitumPrice > 0) {
+                const spitumGold = totalSpitum * spitumPrice;
+                document.getElementById('resultSpitumGold').textContent = formatGold(spitumGold);
+                document.getElementById('spitumGoldCard').style.display = 'block';
+                totalCost += spitumGold;
+            } else {
+                document.getElementById('spitumGoldCard').style.display = 'none';
+            }
+
+            document.getElementById('resultTotal').textContent = formatGold(totalCost);
+        }
+
+        document.getElementById('currentLevel').addEventListener('change', function() {
+            updateMaxExp();
+            calculate();
+        });
+
+        document.getElementById('currentExp').addEventListener('input', calculate);
+        document.getElementById('targetLevel').addEventListener('change', calculate);
+        document.getElementById('etherPrice').addEventListener('input', calculate);
+        document.getElementById('spitumPrice').addEventListener('input', calculate);
+
+        initLevelDropdowns();
+    </script>
+</body>
+</html>

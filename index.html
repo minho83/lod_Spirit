@@ -44,55 +44,82 @@
         }
         .result-card {
             background: rgba(255, 215, 0, 0.1);
-            border: 2px solid #FFD700;
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            border-radius: 10px;
+            padding: 14px;
+        }
+        .credit-header {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
-            padding: 16px;
-            margin: 10px 0;
-        }
-        .credit-footer {
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 20px;
+            padding: 12px 20px;
             text-align: center;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 14px;
-            margin-top: 40px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 13px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
-        .credit-footer a {
+        .credit-header a {
             color: #FFD700;
             text-decoration: none;
             transition: all 0.3s;
         }
-        .credit-footer a:hover {
+        .credit-header a:hover {
             color: #FFA500;
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-title-gold {
+            color: #FFD700;
+        }
+        .optional-badge {
+            font-size: 0.7rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 8px;
+            border-radius: 10px;
+            color: rgba(255, 255, 255, 0.5);
+        }
     </style>
 </head>
-<body class="p-4">
+<body class="p-4 pb-8">
     <div class="container mx-auto max-w-4xl">
-        <h1 class="text-4xl font-bold text-center mb-8 gold-text">⚔️ 정령 레벨업 비용 계산기</h1>
-        
-        <div class="glass-card p-6 mb-6">
-            <h2 class="text-2xl font-bold text-white mb-4">📊 정령 정보 입력</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+        <!-- 헤더: 제목 + 크레딧 -->
+        <header class="text-center mb-6">
+            <h1 class="text-3xl md:text-4xl font-bold gold-text mb-4">⚔️ 정령 레벨업 비용 계산기</h1>
+            <div class="credit-header">
+                <span>제작: <strong class="text-white">밀떡밀떡</strong></span>
+                <span>자료참고: <a href="https://cafe.naver.com/sclod12/492172?art=aW50ZXJuYWwtY2FmZS1hcnRpY2xlLXJlYWQtc2hhcmUtbGluaw.eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjYWZlVHlwZSI6IkNBRkVfSUQiLCJhcnRpY2xlSWQiOjQ5MjE3MiwiaXNzdWVkQXQiOjE3NjY5NDc0Mjk4NzksImNhZmVJZCI6MTM0MzQwMDh9.0fz_7ILNtaSWSdWEehE-vP-Z7OY1KZAlPZrQysXwYuA" target="_blank">수이교 님</a></span>
+            </div>
+        </header>
+
+        <!-- 1. 정령 정보 입력 -->
+        <div class="glass-card p-5 mb-5">
+            <h2 class="section-title">📊 정령 정보 입력</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
-                    <label class="text-white block mb-2">현재 레벨</label>
+                    <label class="text-gray-300 text-sm block mb-2">현재 레벨</label>
                     <select id="currentLevel" class="input-field">
                         <option value="">선택하세요</option>
                     </select>
                 </div>
-                
                 <div>
-                    <label class="text-white block mb-2">현재 EXP</label>
+                    <label class="text-gray-300 text-sm block mb-2">현재 EXP</label>
                     <input type="number" id="currentExp" class="input-field" min="0" value="0" placeholder="0">
-                    <p class="text-xs text-gray-400 mt-1">최대: <span id="maxExpInfo">-</span></p>
+                    <p class="text-xs text-gray-500 mt-1">최대: <span id="maxExpInfo">-</span></p>
                 </div>
-                
                 <div>
-                    <label class="text-white block mb-2">목표 레벨</label>
+                    <label class="text-gray-300 text-sm block mb-2">목표 레벨</label>
                     <select id="targetLevel" class="input-field">
                         <option value="">선택하세요</option>
                     </select>
@@ -100,123 +127,114 @@
             </div>
         </div>
 
-        <div class="glass-card p-6 mb-6">
-            <h2 class="text-2xl font-bold text-white mb-4">💰 시세 입력 (선택)</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                    <label class="text-white block mb-2">에테르 시세 (골드)</label>
-                    <input type="number" id="etherPrice" class="input-field" min="0" placeholder="예: 5000">
+        <!-- 2. 계산 결과 -->
+        <div class="glass-card p-5 mb-5">
+            <h2 class="section-title section-title-gold">📈 계산 결과</h2>
+            <div id="results" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div class="result-card">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-gray-300">필요 스피먼트</span>
+                        <span class="gold-text text-xl font-bold" id="resultSpiment">-</span>
+                    </div>
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-gray-500">추가 필요</span>
+                        <span class="text-green-400 font-semibold" id="needSpiment">-</span>
+                    </div>
                 </div>
 
+                <div class="result-card">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-gray-300">필요 에테르</span>
+                        <span class="gold-text text-xl font-bold" id="resultEther">-</span>
+                    </div>
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-gray-500">추가 필요</span>
+                        <span class="text-green-400 font-semibold" id="needEther">-</span>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-gray-300">필요 스피튬</span>
+                        <span class="gold-text text-xl font-bold" id="resultSpitum">-</span>
+                    </div>
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-gray-500">추가 필요</span>
+                        <span class="text-green-400 font-semibold" id="needSpitum">-</span>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-gray-300">레벨업 골드</span>
+                        <span class="gold-text text-xl font-bold" id="resultGold">-</span>
+                    </div>
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-gray-500">추가 필요</span>
+                        <span class="text-green-400 font-semibold" id="needGold">-</span>
+                    </div>
+                </div>
+
+                <div class="result-card md:col-span-2" id="etherGoldCard" style="display: none;">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-300">에테르 환산 골드</span>
+                        <span class="gold-text text-xl font-bold" id="resultEtherGold">-</span>
+                    </div>
+                </div>
+
+                <div class="result-card md:col-span-2" id="spitumGoldCard" style="display: none;">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-300">스피튬 환산 골드</span>
+                        <span class="gold-text text-xl font-bold" id="resultSpitumGold">-</span>
+                    </div>
+                </div>
+
+                <div class="result-card md:col-span-2" style="background: rgba(255, 215, 0, 0.15); border: 2px solid #FFD700;">
+                    <div class="flex justify-between items-center">
+                        <span class="text-white font-bold">💰 통합 총 비용</span>
+                        <span class="gold-text text-2xl font-bold" id="resultTotal">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. 선택 사항: 시세 입력 -->
+        <div class="glass-card p-5 mb-5">
+            <h2 class="section-title">💰 시세 입력 <span class="optional-badge">선택</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                    <label class="text-white block mb-2">스피튬 시세 (골드)</label>
+                    <label class="text-gray-300 text-sm block mb-2">에테르 시세 (골드)</label>
+                    <input type="number" id="etherPrice" class="input-field" min="0" placeholder="예: 5000">
+                </div>
+                <div>
+                    <label class="text-gray-300 text-sm block mb-2">스피튬 시세 (골드)</label>
                     <input type="number" id="spitumPrice" class="input-field" min="0" placeholder="예: 10000">
                 </div>
             </div>
         </div>
 
-        <div class="glass-card p-6 mb-6">
-            <h2 class="text-2xl font-bold text-white mb-4">📦 보유 재료 입력 (선택)</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- 4. 선택 사항: 보유 재료 입력 -->
+        <div class="glass-card p-5">
+            <h2 class="section-title">📦 보유 재료 입력 <span class="optional-badge">선택</span></h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
                 <div>
-                    <label class="text-white block mb-2">보유 스피먼트</label>
+                    <label class="text-gray-300 text-sm block mb-2">스피먼트</label>
                     <input type="number" id="ownedSpiment" class="input-field" min="0" value="0" placeholder="0">
                 </div>
-
                 <div>
-                    <label class="text-white block mb-2">보유 에테르</label>
+                    <label class="text-gray-300 text-sm block mb-2">에테르</label>
                     <input type="number" id="ownedEther" class="input-field" min="0" value="0" placeholder="0">
                 </div>
-
                 <div>
-                    <label class="text-white block mb-2">보유 스피튬</label>
+                    <label class="text-gray-300 text-sm block mb-2">스피튬</label>
                     <input type="number" id="ownedSpitum" class="input-field" min="0" value="0" placeholder="0">
                 </div>
-
                 <div>
-                    <label class="text-white block mb-2">보유 골드</label>
+                    <label class="text-gray-300 text-sm block mb-2">골드</label>
                     <input type="number" id="ownedGold" class="input-field" min="0" value="0" placeholder="0">
                 </div>
             </div>
         </div>
-
-        <div class="glass-card p-6">
-            <h2 class="text-2xl font-bold gold-text mb-4">📈 계산 결과</h2>
-            
-            <div id="results" class="space-y-4">
-                <div class="result-card">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-white text-lg">필요 스피먼트</span>
-                        <span class="gold-text text-2xl font-bold" id="resultSpiment">-</span>
-                    </div>
-                    <div class="flex justify-between items-center text-sm">
-                        <span class="text-gray-400">추가 필요</span>
-                        <span class="text-green-400 font-bold" id="needSpiment">-</span>
-                    </div>
-                </div>
-
-                <div class="result-card">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-white text-lg">필요 에테르</span>
-                        <span class="gold-text text-2xl font-bold" id="resultEther">-</span>
-                    </div>
-                    <div class="flex justify-between items-center text-sm">
-                        <span class="text-gray-400">추가 필요</span>
-                        <span class="text-green-400 font-bold" id="needEther">-</span>
-                    </div>
-                </div>
-
-                <div class="result-card">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-white text-lg">필요 스피튬</span>
-                        <span class="gold-text text-2xl font-bold" id="resultSpitum">-</span>
-                    </div>
-                    <div class="flex justify-between items-center text-sm">
-                        <span class="text-gray-400">추가 필요</span>
-                        <span class="text-green-400 font-bold" id="needSpitum">-</span>
-                    </div>
-                </div>
-
-                <div class="result-card">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-white text-lg">레벨업 골드</span>
-                        <span class="gold-text text-2xl font-bold" id="resultGold">-</span>
-                    </div>
-                    <div class="flex justify-between items-center text-sm">
-                        <span class="text-gray-400">추가 필요</span>
-                        <span class="text-green-400 font-bold" id="needGold">-</span>
-                    </div>
-                </div>
-                
-                <div class="result-card" id="etherGoldCard" style="display: none;">
-                    <div class="flex justify-between items-center">
-                        <span class="text-white text-lg">에테르 환산 골드</span>
-                        <span class="gold-text text-2xl font-bold" id="resultEtherGold">-</span>
-                    </div>
-                </div>
-                
-                <div class="result-card" id="spitumGoldCard" style="display: none;">
-                    <div class="flex justify-between items-center">
-                        <span class="text-white text-lg">스피튬 환산 골드</span>
-                        <span class="gold-text text-2xl font-bold" id="resultSpitumGold">-</span>
-                    </div>
-                </div>
-                
-                <div class="result-card" style="background: rgba(255, 215, 0, 0.2); border: 3px solid #FFD700;">
-                    <div class="flex justify-between items-center">
-                        <span class="text-white text-xl font-bold">💰 통합 총 비용</span>
-                        <span class="gold-text text-3xl font-bold" id="resultTotal">-</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="credit-footer">
-        <div>제작 : 밀떡밀떡</div>
-        <div>자료참고 : <a href="https://cafe.naver.com/sclod12/492172?art=aW50ZXJuYWwtY2FmZS1hcnRpY2xlLXJlYWQtc2hhcmUtbGluaw.eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjYWZlVHlwZSI6IkNBRkVfSUQiLCJhcnRpY2xlSWQiOjQ5MjE3MiwiaXNzdWVkQXQiOjE3NjY5NDc0Mjk4NzksImNhZmVJZCI6MTM0MzQwMDh9.0fz_7ILNtaSWSdWEehE-vP-Z7OY1KZAlPZrQysXwYuA" target="_blank">수이교 님 자료</a></div>
     </div>
 
     <script>

@@ -147,30 +147,46 @@
             
             <div id="results" class="space-y-4">
                 <div class="result-card">
-                    <div class="flex justify-between items-center">
+                    <div class="flex justify-between items-center mb-2">
                         <span class="text-white text-lg">필요 스피먼트</span>
                         <span class="gold-text text-2xl font-bold" id="resultSpiment">-</span>
                     </div>
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-gray-400">추가 필요</span>
+                        <span class="text-green-400 font-bold" id="needSpiment">-</span>
+                    </div>
                 </div>
-                
+
                 <div class="result-card">
-                    <div class="flex justify-between items-center">
+                    <div class="flex justify-between items-center mb-2">
                         <span class="text-white text-lg">필요 에테르</span>
                         <span class="gold-text text-2xl font-bold" id="resultEther">-</span>
                     </div>
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-gray-400">추가 필요</span>
+                        <span class="text-green-400 font-bold" id="needEther">-</span>
+                    </div>
                 </div>
-                
+
                 <div class="result-card">
-                    <div class="flex justify-between items-center">
+                    <div class="flex justify-between items-center mb-2">
                         <span class="text-white text-lg">필요 스피튬</span>
                         <span class="gold-text text-2xl font-bold" id="resultSpitum">-</span>
                     </div>
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-gray-400">추가 필요</span>
+                        <span class="text-green-400 font-bold" id="needSpitum">-</span>
+                    </div>
                 </div>
-                
+
                 <div class="result-card">
-                    <div class="flex justify-between items-center">
+                    <div class="flex justify-between items-center mb-2">
                         <span class="text-white text-lg">레벨업 골드</span>
                         <span class="gold-text text-2xl font-bold" id="resultGold">-</span>
+                    </div>
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-gray-400">추가 필요</span>
+                        <span class="text-green-400 font-bold" id="needGold">-</span>
                     </div>
                 </div>
                 
@@ -344,6 +360,23 @@
             document.getElementById('resultSpitum').textContent = formatNumber(totalSpitum) + ' 개';
             document.getElementById('resultGold').textContent = formatGold(totalGold);
 
+            // 보유 재료 계산
+            const ownedSpiment = parseInt(document.getElementById('ownedSpiment').value) || 0;
+            const ownedEther = parseInt(document.getElementById('ownedEther').value) || 0;
+            const ownedSpitum = parseInt(document.getElementById('ownedSpitum').value) || 0;
+            const ownedGold = parseInt(document.getElementById('ownedGold').value) || 0;
+
+            // 추가 필요량 계산 (음수면 0으로)
+            const needSpiment = Math.max(0, totalSpiment - ownedSpiment);
+            const needEther = Math.max(0, totalEther - ownedEther);
+            const needSpitum = Math.max(0, totalSpitum - ownedSpitum);
+            const needGold = Math.max(0, totalGold - ownedGold);
+
+            document.getElementById('needSpiment').textContent = formatNumber(needSpiment) + ' 개';
+            document.getElementById('needEther').textContent = formatNumber(needEther) + ' 개';
+            document.getElementById('needSpitum').textContent = formatNumber(needSpitum) + ' 개';
+            document.getElementById('needGold').textContent = formatGold(needGold);
+
             let totalCost = totalGold;
 
             if (etherPrice > 0) {
@@ -376,6 +409,10 @@
         document.getElementById('targetLevel').addEventListener('change', calculate);
         document.getElementById('etherPrice').addEventListener('input', calculate);
         document.getElementById('spitumPrice').addEventListener('input', calculate);
+        document.getElementById('ownedSpiment').addEventListener('input', calculate);
+        document.getElementById('ownedEther').addEventListener('input', calculate);
+        document.getElementById('ownedSpitum').addEventListener('input', calculate);
+        document.getElementById('ownedGold').addEventListener('input', calculate);
 
         initLevelDropdowns();
     </script>

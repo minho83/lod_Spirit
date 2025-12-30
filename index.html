@@ -204,6 +204,13 @@
                     </div>
                 </div>
 
+                <div class="result-card md:col-span-2" id="spimentGoldCard" style="display: none;">
+                    <div class="flex justify-between items-center">
+                        <span style="color: #ffffff;">스피먼트 환산 골드</span>
+                        <span class="gold-text text-xl font-bold" id="resultSpimentGold">-</span>
+                    </div>
+                </div>
+
                 <div class="result-card md:col-span-2" id="etherGoldCard" style="display: none;">
                     <div class="flex justify-between items-center">
                         <span style="color: #ffffff;">에테르 환산 골드</span>
@@ -230,7 +237,11 @@
         <!-- 3. 선택 사항: 시세 입력 -->
         <div class="glass-card p-5 mb-5">
             <h2 class="section-title">💰 시세 입력 <span class="optional-badge">선택</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label class="text-gray-300 text-sm block mb-2">스피먼트 시세 (골드)</label>
+                    <input type="number" id="spimentPrice" class="input-field" min="0" placeholder="예: 100">
+                </div>
                 <div>
                     <label class="text-gray-300 text-sm block mb-2">에테르 시세 (골드)</label>
                     <input type="number" id="etherPrice" class="input-field" min="0" placeholder="예: 5000">
@@ -410,6 +421,7 @@
             const currentExp = parseInt(document.getElementById('currentExp').value) || 0;
             const targetLevel = parseInt(document.getElementById('targetLevel').value);
             const weeklyLevelup = parseInt(document.getElementById('weeklyLevelup').value) || 7;
+            const spimentPrice = parseFloat(document.getElementById('spimentPrice').value) || 0;
             const etherPrice = parseFloat(document.getElementById('etherPrice').value) || 0;
             const spitumPrice = parseFloat(document.getElementById('spitumPrice').value) || 0;
 
@@ -500,6 +512,15 @@
 
             let totalCost = totalGold;
 
+            if (spimentPrice > 0) {
+                const spimentGold = totalSpiment * spimentPrice;
+                document.getElementById('resultSpimentGold').textContent = formatGold(spimentGold);
+                document.getElementById('spimentGoldCard').style.display = 'block';
+                totalCost += spimentGold;
+            } else {
+                document.getElementById('spimentGoldCard').style.display = 'none';
+            }
+
             if (etherPrice > 0) {
                 const etherGold = totalEther * etherPrice;
                 document.getElementById('resultEtherGold').textContent = formatGold(etherGold);
@@ -529,6 +550,7 @@
         document.getElementById('currentExp').addEventListener('input', calculate);
         document.getElementById('targetLevel').addEventListener('change', calculate);
         document.getElementById('weeklyLevelup').addEventListener('input', calculate);
+        document.getElementById('spimentPrice').addEventListener('input', calculate);
         document.getElementById('etherPrice').addEventListener('input', calculate);
         document.getElementById('spitumPrice').addEventListener('input', calculate);
         document.getElementById('ownedSpiment').addEventListener('input', calculate);

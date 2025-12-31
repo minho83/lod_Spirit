@@ -400,8 +400,8 @@
             const currentLevel = parseInt(document.getElementById('currentLevel').value);
             if (currentLevel && currentLevel >= 1 && currentLevel <= 50) {
                 const data = spiritData[currentLevel - 1];
-                document.getElementById('maxExpInfo').textContent = data.exp - 1;
-                document.getElementById('currentExp').max = data.exp - 1;
+                document.getElementById('maxExpInfo').textContent = data.exp;
+                document.getElementById('currentExp').max = data.exp;
             } else {
                 document.getElementById('maxExpInfo').textContent = '-';
             }

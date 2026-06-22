@@ -1,0 +1,300 @@
+{level: 1, spiment: 200, ether: 1, gold: {r17: 1000000,r8: 2000000,r9: 4000000,r10: 8000000
+    }, spitum: 1, exp: 8
+}
+{level: 2, spiment: 200, ether: 1, gold: {r17: 1000000,r8: 2000000,r9: 4000000,r10: 8000000
+    }, spitum: 2, exp: 8
+}
+{level: 3, spiment: 200, ether: 1, gold: {r17: 1000000,r8: 2000000,r9: 4000000,r10: 8000000
+    }, spitum: 3, exp: 8
+}
+{level: 4, spiment: 200, ether: 1, gold: {r17: 1000000,r8: 2000000,r9: 4000000,r10: 8000000
+    }, spitum: 4, exp: 8
+}
+{level: 5, spiment: 200, ether: 1, gold: {r17: 1000000,r8: 2000000,r9: 4000000,r10: 8000000
+    }, spitum: 5, exp: 8
+}
+{level: 6, spiment: 200, ether: 1, gold: {r17: 2000000,r8: 4000000,r9: 8000000,r10: 16000000
+    }, spitum: 6, exp: 8
+}
+{level: 7, spiment: 200, ether: 1, gold: {r17: 2000000,r8: 4000000,r9: 8000000,r10: 16000000
+    }, spitum: 7, exp: 8
+}
+{level: 8, spiment: 200, ether: 1, gold: {r17: 2000000,r8: 4000000,r9: 8000000,r10: 16000000
+    }, spitum: 7, exp: 8
+}
+{level: 9, spiment: 200, ether: 1, gold: {r17: 2000000,r8: 4000000,r9: 8000000,r10: 16000000
+    }, spitum: 7, exp: 8
+}
+{level: 10, spiment: 200, ether: 1, gold: {r17: 2000000,r8: 4000000,r9: 8000000,r10: 16000000
+    }, spitum: 7, exp: 16
+}
+{level: 11, spiment: 300, ether: 2, gold: {r17: 3000000,r8: 6000000,r9: 12000000,r10: 24000000
+    }, spitum: 8, exp: 16
+}
+{level: 12, spiment: 300, ether: 2, gold: {r17: 3000000,r8: 6000000,r9: 12000000,r10: 24000000
+    }, spitum: 8, exp: 16
+}
+{level: 13, spiment: 300, ether: 2, gold: {r17: 3000000,r8: 6000000,r9: 12000000,r10: 24000000
+    }, spitum: 8, exp: 16
+}
+{level: 14, spiment: 300, ether: 2, gold: {r17: 3000000,r8: 6000000,r9: 12000000,r10: 24000000
+    }, spitum: 8, exp: 16
+}
+{level: 15, spiment: 300, ether: 2, gold: {r17: 3000000,r8: 6000000,r9: 12000000,r10: 24000000
+    }, spitum: 8, exp: 16
+}
+{level: 16, spiment: 300, ether: 2, gold: {r17: 4000000,r8: 8000000,r9: 16000000,r10: 32000000
+    }, spitum: 8, exp: 16
+}
+{level: 17, spiment: 300, ether: 2, gold: {r17: 4000000,r8: 8000000,r9: 16000000,r10: 32000000
+    }, spitum: 8, exp: 16
+}
+{level: 18, spiment: 300, ether: 2, gold: {r17: 4000000,r8: 8000000,r9: 16000000,r10: 32000000
+    }, spitum: 8, exp: 16
+}
+{level: 19, spiment: 300, ether: 2, gold: {r17: 4000000,r8: 8000000,r9: 16000000,r10: 32000000
+    }, spitum: 8, exp: 16
+}
+{level: 20, spiment: 300, ether: 2, gold: {r17: 4000000,r8: 8000000,r9: 16000000,r10: 32000000
+    }, spitum: 8, exp: 32
+}
+{level: 21, spiment: 300, ether: 2, gold: {r17: 5000000,r8: 10000000,r9: 20000000,r10: 40000000
+    }, spitum: 10, exp: 32
+}
+{level: 22, spiment: 300, ether: 2, gold: {r17: 5000000,r8: 10000000,r9: 20000000,r10: 40000000
+    }, spitum: 10, exp: 32
+}
+{level: 23, spiment: 300, ether: 2, gold: {r17: 5000000,r8: 10000000,r9: 20000000,r10: 40000000
+    }, spitum: 10, exp: 32
+}
+{level: 24, spiment: 300, ether: 2, gold: {r17: 5000000,r8: 10000000,r9: 20000000,r10: 40000000
+    }, spitum: 10, exp: 32
+}
+{level: 25, spiment: 300, ether: 2, gold: {r17: 5000000,r8: 10000000,r9: 20000000,r10: 40000000
+    }, spitum: 10, exp: 32
+}
+{level: 26, spiment: 300, ether: 2, gold: {r17: 6000000,r8: 12000000,r9: 24000000,r10: 48000000
+    }, spitum: 10, exp: 32
+}
+{level: 27, spiment: 300, ether: 2, gold: {r17: 6000000,r8: 12000000,r9: 24000000,r10: 48000000
+    }, spitum: 10, exp: 32
+}
+{level: 28, spiment: 300, ether: 2, gold: {r17: 6000000,r8: 12000000,r9: 24000000,r10: 48000000
+    }, spitum: 10, exp: 32
+}
+{level: 29, spiment: 300, ether: 2, gold: {r17: 6000000,r8: 12000000,r9: 24000000,r10: 48000000
+    }, spitum: 10, exp: 32
+}
+{level: 30, spiment: 300, ether: 2, gold: {r17: 6000000,r8: 12000000,r9: 24000000,r10: 48000000
+    }, spitum: 10, exp: 48
+}
+{level: 31, spiment: 400, ether: 3, gold: {r17: 7000000,r8: 14000000,r9: 28000000,r10: 56000000
+    }, spitum: 12, exp: 48
+}
+{level: 32, spiment: 400, ether: 3, gold: {r17: 7000000,r8: 14000000,r9: 28000000,r10: 56000000
+    }, spitum: 12, exp: 48
+}
+{level: 33, spiment: 400, ether: 3, gold: {r17: 7000000,r8: 14000000,r9: 28000000,r10: 56000000
+    }, spitum: 12, exp: 48
+}
+{level: 34, spiment: 400, ether: 3, gold: {r17: 7000000,r8: 14000000,r9: 28000000,r10: 56000000
+    }, spitum: 12, exp: 48
+}
+{level: 35, spiment: 400, ether: 3, gold: {r17: 7000000,r8: 14000000,r9: 28000000,r10: 56000000
+    }, spitum: 12, exp: 48
+}
+{level: 36, spiment: 400, ether: 3, gold: {r17: 8000000,r8: 16000000,r9: 32000000,r10: 64000000
+    }, spitum: 12, exp: 48
+}
+{level: 37, spiment: 400, ether: 3, gold: {r17: 8000000,r8: 16000000,r9: 32000000,r10: 64000000
+    }, spitum: 12, exp: 48
+}
+{level: 38, spiment: 400, ether: 3, gold: {r17: 8000000,r8: 16000000,r9: 32000000,r10: 64000000
+    }, spitum: 12, exp: 48
+}
+{level: 39, spiment: 400, ether: 3, gold: {r17: 8000000,r8: 16000000,r9: 32000000,r10: 64000000
+    }, spitum: 12, exp: 48
+}
+{level: 40, spiment: 400, ether: 3, gold: {r17: 8000000,r8: 16000000,r9: 32000000,r10: 64000000
+    }, spitum: 12, exp: 64
+}
+{level: 41, spiment: 400, ether: 3, gold: {r17: 9000000,r8: 18000000,r9: 36000000,r10: 72000000
+    }, spitum: 14, exp: 64
+}
+{level: 42, spiment: 400, ether: 3, gold: {r17: 9000000,r8: 18000000,r9: 36000000,r10: 72000000
+    }, spitum: 14, exp: 64
+}
+{level: 43, spiment: 400, ether: 3, gold: {r17: 9000000,r8: 18000000,r9: 36000000,r10: 72000000
+    }, spitum: 14, exp: 64
+}
+{level: 44, spiment: 400, ether: 3, gold: {r17: 9000000,r8: 18000000,r9: 36000000,r10: 72000000
+    }, spitum: 14, exp: 64
+}
+{level: 45, spiment: 400, ether: 3, gold: {r17: 9000000,r8: 18000000,r9: 36000000,r10: 72000000
+    }, spitum: 14, exp: 64
+}
+{level: 46, spiment: 400, ether: 3, gold: {r17: 10000000,r8: 20000000,r9: 40000000,r10: 80000000
+    }, spitum: 14, exp: 64
+}
+{level: 47, spiment: 400, ether: 3, gold: {r17: 10000000,r8: 20000000,r9: 40000000,r10: 80000000
+    }, spitum: 14, exp: 64
+}
+{level: 48, spiment: 400, ether: 3, gold: {r17: 10000000,r8: 20000000,r9: 40000000,r10: 80000000
+    }, spitum: 14, exp: 64
+}
+{level: 49, spiment: 400, ether: 3, gold: {r17: 10000000,r8: 20000000,r9: 40000000,r10: 80000000
+    }, spitum: 14, exp: 64
+}
+{level: 50, spiment: 400, ether: 3, gold: {r17: 10000000,r8: 20000000,r9: 40000000,r10: 80000000
+    }, spitum: 14, exp: 96
+}
+{level: 51, spiment: 400, ether: 3, gold: {r17: 11000000,r8: 22000000,r9: 44000000,r10: 88000000
+    }, spitum: 16, exp: 96
+}
+{level: 52, spiment: 400, ether: 3, gold: {r17: 11000000,r8: 22000000,r9: 44000000,r10: 88000000
+    }, spitum: 16, exp: 96
+}
+{level: 53, spiment: 400, ether: 3, gold: {r17: 11000000,r8: 22000000,r9: 44000000,r10: 88000000
+    }, spitum: 16, exp: 96
+}
+{level: 54, spiment: 400, ether: 3, gold: {r17: 11000000,r8: 22000000,r9: 44000000,r10: 88000000
+    }, spitum: 16, exp: 96
+}
+{level: 55, spiment: 400, ether: 3, gold: {r17: 11000000,r8: 22000000,r9: 44000000,r10: 88000000
+    }, spitum: 16, exp: 96
+}
+{level: 56, spiment: 400, ether: 3, gold: {r17: 12000000,r8: 24000000,r9: 48000000,r10: 96000000
+    }, spitum: 16, exp: 96
+}
+{level: 57, spiment: 400, ether: 3, gold: {r17: 12000000,r8: 24000000,r9: 48000000,r10: 96000000
+    }, spitum: 16, exp: 96
+}
+{level: 58, spiment: 400, ether: 3, gold: {r17: 12000000,r8: 24000000,r9: 48000000,r10: 96000000
+    }, spitum: 16, exp: 96
+}
+{level: 59, spiment: 400, ether: 3, gold: {r17: 12000000,r8: 24000000,r9: 48000000,r10: 96000000
+    }, spitum: 16, exp: 96
+}
+{level: 60, spiment: 400, ether: 3, gold: {r17: 12000000,r8: 24000000,r9: 48000000,r10: 96000000
+    }, spitum: 16, exp: 128
+}
+{level: 61, spiment: 500, ether: 4, gold: {r17: 13000000,r8: 26000000,r9: 52000000,r10: 104000000
+    }, spitum: 18, exp: 128
+}
+{level: 62, spiment: 500, ether: 4, gold: {r17: 13000000,r8: 26000000,r9: 52000000,r10: 104000000
+    }, spitum: 18, exp: 128
+}
+{level: 63, spiment: 500, ether: 4, gold: {r17: 13000000,r8: 26000000,r9: 52000000,r10: 104000000
+    }, spitum: 18, exp: 128
+}
+{level: 64, spiment: 500, ether: 4, gold: {r17: 13000000,r8: 26000000,r9: 52000000,r10: 104000000
+    }, spitum: 18, exp: 128
+}
+{level: 65, spiment: 500, ether: 4, gold: {r17: 13000000,r8: 26000000,r9: 52000000,r10: 104000000
+    }, spitum: 18, exp: 128
+}
+{level: 66, spiment: 500, ether: 4, gold: {r17: 14000000,r8: 28000000,r9: 56000000,r10: 112000000
+    }, spitum: 18, exp: 128
+}
+{level: 67, spiment: 500, ether: 4, gold: {r17: 14000000,r8: 28000000,r9: 56000000,r10: 112000000
+    }, spitum: 18, exp: 128
+}
+{level: 68, spiment: 500, ether: 4, gold: {r17: 14000000,r8: 28000000,r9: 56000000,r10: 112000000
+    }, spitum: 18, exp: 128
+}
+{level: 69, spiment: 500, ether: 4, gold: {r17: 14000000,r8: 28000000,r9: 56000000,r10: 112000000
+    }, spitum: 18, exp: 128
+}
+{level: 70, spiment: 500, ether: 4, gold: {r17: 14000000,r8: 28000000,r9: 56000000,r10: 112000000
+    }, spitum: 18, exp: 160
+}
+{level: 71, spiment: 500, ether: 4, gold: {r17: 15000000,r8: 30000000,r9: 60000000,r10: 120000000
+    }, spitum: 20, exp: 160
+}
+{level: 72, spiment: 500, ether: 4, gold: {r17: 15000000,r8: 30000000,r9: 60000000,r10: 120000000
+    }, spitum: 20, exp: 160
+}
+{level: 73, spiment: 500, ether: 4, gold: {r17: 15000000,r8: 30000000,r9: 60000000,r10: 120000000
+    }, spitum: 20, exp: 160
+}
+{level: 74, spiment: 500, ether: 4, gold: {r17: 15000000,r8: 30000000,r9: 60000000,r10: 120000000
+    }, spitum: 20, exp: 160
+}
+{level: 75, spiment: 500, ether: 4, gold: {r17: 15000000,r8: 30000000,r9: 60000000,r10: 120000000
+    }, spitum: 20, exp: 160
+}
+{level: 76, spiment: 500, ether: 4, gold: {r17: 16000000,r8: 32000000,r9: 64000000,r10: 128000000
+    }, spitum: 20, exp: 160
+}
+{level: 77, spiment: 500, ether: 4, gold: {r17: 16000000,r8: 32000000,r9: 64000000,r10: 128000000
+    }, spitum: 20, exp: 160
+}
+{level: 78, spiment: 500, ether: 4, gold: {r17: 16000000,r8: 32000000,r9: 64000000,r10: 128000000
+    }, spitum: 20, exp: 160
+}
+{level: 79, spiment: 500, ether: 4, gold: {r17: 16000000,r8: 32000000,r9: 64000000,r10: 128000000
+    }, spitum: 20, exp: 160
+}
+{level: 80, spiment: 500, ether: 4, gold: {r17: 16000000,r8: 32000000,r9: 64000000,r10: 128000000
+    }, spitum: 20, exp: 192
+}
+{level: 81, spiment: 500, ether: 4, gold: {r17: 17000000,r8: 34000000,r9: 68000000,r10: 136000000
+    }, spitum: 22, exp: 192
+}
+{level: 82, spiment: 500, ether: 4, gold: {r17: 17000000,r8: 34000000,r9: 68000000,r10: 136000000
+    }, spitum: 22, exp: 192
+}
+{level: 83, spiment: 500, ether: 4, gold: {r17: 17000000,r8: 34000000,r9: 68000000,r10: 136000000
+    }, spitum: 22, exp: 192
+}
+{level: 84, spiment: 500, ether: 4, gold: {r17: 17000000,r8: 34000000,r9: 68000000,r10: 136000000
+    }, spitum: 22, exp: 192
+}
+{level: 85, spiment: 500, ether: 4, gold: {r17: 17000000,r8: 34000000,r9: 68000000,r10: 136000000
+    }, spitum: 22, exp: 192
+}
+{level: 86, spiment: 500, ether: 4, gold: {r17: 18000000,r8: 36000000,r9: 72000000,r10: 144000000
+    }, spitum: 22, exp: 192
+}
+{level: 87, spiment: 500, ether: 4, gold: {r17: 18000000,r8: 36000000,r9: 72000000,r10: 144000000
+    }, spitum: 22, exp: 192
+}
+{level: 88, spiment: 500, ether: 4, gold: {r17: 18000000,r8: 36000000,r9: 72000000,r10: 144000000
+    }, spitum: 22, exp: 192
+}
+{level: 89, spiment: 500, ether: 4, gold: {r17: 18000000,r8: 36000000,r9: 72000000,r10: 144000000
+    }, spitum: 22, exp: 192
+}
+{level: 90, spiment: 500, ether: 4, gold: {r17: 18000000,r8: 36000000,r9: 72000000,r10: 144000000
+    }, spitum: 22, exp: 224
+}
+{level: 91, spiment: 500, ether: 4, gold: {r17: 19000000,r8: 38000000,r9: 76000000,r10: 152000000
+    }, spitum: 24, exp: 224
+}
+{level: 92, spiment: 500, ether: 4, gold: {r17: 19000000,r8: 38000000,r9: 76000000,r10: 152000000
+    }, spitum: 24, exp: 224
+}
+{level: 93, spiment: 500, ether: 4, gold: {r17: 19000000,r8: 38000000,r9: 76000000,r10: 152000000
+    }, spitum: 24, exp: 224
+}
+{level: 94, spiment: 500, ether: 4, gold: {r17: 19000000,r8: 38000000,r9: 76000000,r10: 152000000
+    }, spitum: 24, exp: 224
+}
+{level: 95, spiment: 500, ether: 4, gold: {r17: 19000000,r8: 38000000,r9: 76000000,r10: 152000000
+    }, spitum: 24, exp: 224
+}
+{level: 96, spiment: 500, ether: 4, gold: {r17: 20000000,r8: 40000000,r9: 80000000,r10: 160000000
+    }, spitum: 24, exp: 224
+}
+{level: 97, spiment: 500, ether: 4, gold: {r17: 20000000,r8: 40000000,r9: 80000000,r10: 160000000
+    }, spitum: 24, exp: 224
+}
+{level: 98, spiment: 500, ether: 4, gold: {r17: 20000000,r8: 40000000,r9: 80000000,r10: 160000000
+    }, spitum: 24, exp: 224
+}
+{level: 99, spiment: 500, ether: 4, gold: {r17: 20000000,r8: 40000000,r9: 80000000,r10: 160000000
+    }, spitum: 24, exp: 224
+}
+{level: 100, spiment: 0, ether: 0, gold: {r17: 0,r8: 0,r9: 0,r10: 0
+    }, spitum: 0, exp: 0
+}

@@ -1,0 +1,5 @@
+# Excel/Office 임시 잠금 파일
+~$*.xlsx
+~$*.xls
+~$*.docx
+~$*.pptx

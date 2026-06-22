@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
             min-height: 100vh;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
         .glass-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -18,10 +20,12 @@
             border-radius: 16px;
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
+
         .gold-text {
             color: #FFD700;
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
+
         .input-field {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -30,24 +34,29 @@
             padding: 10px;
             width: 100%;
         }
+
         .input-field:focus {
             outline: none;
             border-color: #FFD700;
             box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
         }
+
         select.input-field option {
             background-color: #1a1a2e !important;
             color: #ffffff !important;
         }
+
         select.input-field {
             color-scheme: dark;
         }
+
         .result-card {
             background: rgba(255, 215, 0, 0.1);
             border: 1px solid rgba(255, 215, 0, 0.4);
             border-radius: 10px;
             padding: 14px;
         }
+
         .credit-header {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -62,15 +71,18 @@
             gap: 20px;
             flex-wrap: wrap;
         }
+
         .credit-header a {
             color: #FFD700;
             text-decoration: none;
             transition: all 0.3s;
         }
+
         .credit-header a:hover {
             color: #FFA500;
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
+
         .section-title {
             font-size: 1.1rem;
             font-weight: 600;
@@ -80,9 +92,11 @@
             align-items: center;
             gap: 8px;
         }
+
         .section-title-gold {
             color: #FFD700;
         }
+
         .optional-badge {
             font-size: 0.7rem;
             background: rgba(255, 255, 255, 0.1);
@@ -92,6 +106,7 @@
         }
     </style>
 </head>
+
 <body class="p-4 pb-8">
     <div class="container mx-auto max-w-4xl">
         <!-- 헤더: 제목 + 크레딧 -->
@@ -99,7 +114,7 @@
             <h1 class="text-3xl md:text-4xl font-bold gold-text mb-4">⚔️ 정령 레벨업 비용 계산기</h1>
             <div class="credit-header">
                 <span>제작: <strong class="text-white">밀떡밀떡</strong></span>
-                <span>자료참고: <a href="https://cafe.naver.com/sclod12/492172?art=aW50ZXJuYWwtY2FmZS1hcnRpY2xlLXJlYWQtc2hhcmUtbGluaw.eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjYWZlVHlwZSI6IkNBRkVfSUQiLCJhcnRpY2xlSWQiOjQ5MjE3MiwiaXNzdWVkQXQiOjE3NjY5NDc0Mjk4NzksImNhZmVJZCI6MTM0MzQwMDh9.0fz_7ILNtaSWSdWEehE-vP-Z7OY1KZAlPZrQysXwYuA" target="_blank">수이교 님</a></span>
+                <span>자료참고: 어둠의전설 클라이언트</a></span>
             </div>
         </header>
 
@@ -126,7 +141,8 @@
                 </div>
                 <div>
                     <label class="text-gray-300 text-sm block mb-2">주당 레벨업 횟수</label>
-                    <input type="number" id="weeklyLevelup" class="input-field" min="1" max="100" value="7" placeholder="7">
+                    <input type="number" id="weeklyLevelup" class="input-field" min="1" max="100" value="7"
+                        placeholder="7">
                     <p class="text-xs text-gray-400 mt-1">1~7: r17, 8: r8, 9: r9, 10+: r10</p>
                 </div>
             </div>
@@ -137,7 +153,8 @@
             <h2 class="section-title section-title-gold">📈 계산 결과</h2>
             <div id="results" class="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <!-- 소요 주 수 & 총 EXP 횟수 -->
-                <div class="result-card" style="background: rgba(100, 200, 255, 0.15); border: 2px solid rgba(100, 200, 255, 0.5);">
+                <div class="result-card"
+                    style="background: rgba(100, 200, 255, 0.15); border: 2px solid rgba(100, 200, 255, 0.5);">
                     <div class="flex justify-between items-center mb-1">
                         <span style="color: #ffffff;">📅 소요 주 수</span>
                         <span class="text-xl font-bold" style="color: #22d3ee;" id="resultWeeks">-</span>
@@ -149,7 +166,8 @@
                 </div>
 
                 <!-- 예상 골드 -->
-                <div class="result-card" style="background: rgba(100, 200, 255, 0.15); border: 2px solid rgba(100, 200, 255, 0.5);">
+                <div class="result-card"
+                    style="background: rgba(100, 200, 255, 0.15); border: 2px solid rgba(100, 200, 255, 0.5);">
                     <div class="flex justify-between items-center mb-1">
                         <span style="color: #ffffff;">💎 예상 골드</span>
                         <span class="text-xl font-bold" style="color: #22d3ee;" id="resultMinGold">-</span>
@@ -225,7 +243,8 @@
                     </div>
                 </div>
 
-                <div class="result-card md:col-span-2" style="background: rgba(255, 215, 0, 0.15); border: 2px solid #FFD700;">
+                <div class="result-card md:col-span-2"
+                    style="background: rgba(255, 215, 0, 0.15); border: 2px solid #FFD700;">
                     <div class="flex justify-between items-center">
                         <span class="font-bold" style="color: #ffffff;">💰 통합 총 비용</span>
                         <span class="gold-text text-2xl font-bold" id="resultTotal">-</span>
@@ -284,10 +303,14 @@
                     <p class="font-bold text-white mb-2">주간 레벨업 비용 시스템</p>
                     <ul class="list-disc list-inside space-y-1 text-gray-400">
                         <li>매주 레벨업 횟수가 <span class="text-cyan-400">리셋</span>됩니다</li>
-                        <li>주간 <span class="text-green-400">1~7번째</span> 레벨업: <span class="text-yellow-400">r17 비용</span> (저렴)</li>
-                        <li>주간 <span class="text-orange-400">8번째</span> 레벨업: <span class="text-yellow-400">r8 비용</span></li>
-                        <li>주간 <span class="text-red-400">9번째</span> 레벨업: <span class="text-yellow-400">r9 비용</span></li>
-                        <li>주간 <span class="text-red-500">10번째 이상</span>: <span class="text-yellow-400">r10 비용</span> (비쌈)</li>
+                        <li>주간 <span class="text-green-400">1~7번째</span> 레벨업: <span class="text-yellow-400">r17
+                                비용</span> (저렴)</li>
+                        <li>주간 <span class="text-orange-400">8번째</span> 레벨업: <span class="text-yellow-400">r8 비용</span>
+                        </li>
+                        <li>주간 <span class="text-red-400">9번째</span> 레벨업: <span class="text-yellow-400">r9 비용</span>
+                        </li>
+                        <li>주간 <span class="text-red-500">10번째 이상</span>: <span class="text-yellow-400">r10 비용</span>
+                            (비쌈)</li>
                     </ul>
                 </div>
                 <div class="p-3 rounded-lg" style="background: rgba(100, 200, 255, 0.1);">
@@ -308,117 +331,110 @@
                 </div>
             </div>
         </div>
-
-        <!-- 푸터: 출처 및 면책 -->
-        <footer class="mt-6 mb-2 text-center text-xs text-gray-500 leading-relaxed">
-            <p>자료 참고: 어둠의전설 게임 내 데이터</p>
-            <p>본 사이트는 <span class="text-gray-400">비공식 팬 제작</span> 계산기이며, 게임사와 아무런 관련이 없습니다.</p>
-            <p>모든 게임 명칭 및 자료의 권리는 해당 게임사에 있습니다.</p>
-        </footer>
     </div>
 
     <script>
         const spiritData = [
-            {level:1, spiment:200, ether:1, gold:{r17:1000000,r8:2000000,r9:4000000,r10:8000000}, spitum:1, exp:8},
-            {level:2, spiment:200, ether:1, gold:{r17:1000000,r8:2000000,r9:4000000,r10:8000000}, spitum:2, exp:8},
-            {level:3, spiment:200, ether:1, gold:{r17:1000000,r8:2000000,r9:4000000,r10:8000000}, spitum:3, exp:8},
-            {level:4, spiment:200, ether:1, gold:{r17:1000000,r8:2000000,r9:4000000,r10:8000000}, spitum:4, exp:8},
-            {level:5, spiment:200, ether:1, gold:{r17:1000000,r8:2000000,r9:4000000,r10:8000000}, spitum:5, exp:8},
-            {level:6, spiment:200, ether:1, gold:{r17:2000000,r8:4000000,r9:8000000,r10:16000000}, spitum:6, exp:8},
-            {level:7, spiment:200, ether:1, gold:{r17:2000000,r8:4000000,r9:8000000,r10:16000000}, spitum:7, exp:8},
-            {level:8, spiment:200, ether:1, gold:{r17:2000000,r8:4000000,r9:8000000,r10:16000000}, spitum:7, exp:8},
-            {level:9, spiment:200, ether:1, gold:{r17:2000000,r8:4000000,r9:8000000,r10:16000000}, spitum:7, exp:8},
-            {level:10, spiment:200, ether:1, gold:{r17:2000000,r8:4000000,r9:8000000,r10:16000000}, spitum:7, exp:16},
-            {level:11, spiment:300, ether:2, gold:{r17:3000000,r8:6000000,r9:12000000,r10:24000000}, spitum:8, exp:16},
-            {level:12, spiment:300, ether:2, gold:{r17:3000000,r8:6000000,r9:12000000,r10:24000000}, spitum:8, exp:16},
-            {level:13, spiment:300, ether:2, gold:{r17:3000000,r8:6000000,r9:12000000,r10:24000000}, spitum:8, exp:16},
-            {level:14, spiment:300, ether:2, gold:{r17:3000000,r8:6000000,r9:12000000,r10:24000000}, spitum:8, exp:16},
-            {level:15, spiment:300, ether:2, gold:{r17:3000000,r8:6000000,r9:12000000,r10:24000000}, spitum:8, exp:16},
-            {level:16, spiment:300, ether:2, gold:{r17:4000000,r8:8000000,r9:16000000,r10:32000000}, spitum:8, exp:16},
-            {level:17, spiment:300, ether:2, gold:{r17:4000000,r8:8000000,r9:16000000,r10:32000000}, spitum:8, exp:16},
-            {level:18, spiment:300, ether:2, gold:{r17:4000000,r8:8000000,r9:16000000,r10:32000000}, spitum:8, exp:16},
-            {level:19, spiment:300, ether:2, gold:{r17:4000000,r8:8000000,r9:16000000,r10:32000000}, spitum:8, exp:16},
-            {level:20, spiment:300, ether:2, gold:{r17:4000000,r8:8000000,r9:16000000,r10:32000000}, spitum:8, exp:32},
-            {level:21, spiment:300, ether:2, gold:{r17:5000000,r8:10000000,r9:20000000,r10:40000000}, spitum:10, exp:32},
-            {level:22, spiment:300, ether:2, gold:{r17:5000000,r8:10000000,r9:20000000,r10:40000000}, spitum:10, exp:32},
-            {level:23, spiment:300, ether:2, gold:{r17:5000000,r8:10000000,r9:20000000,r10:40000000}, spitum:10, exp:32},
-            {level:24, spiment:300, ether:2, gold:{r17:5000000,r8:10000000,r9:20000000,r10:40000000}, spitum:10, exp:32},
-            {level:25, spiment:300, ether:2, gold:{r17:5000000,r8:10000000,r9:20000000,r10:40000000}, spitum:10, exp:32},
-            {level:26, spiment:300, ether:2, gold:{r17:6000000,r8:12000000,r9:24000000,r10:48000000}, spitum:10, exp:32},
-            {level:27, spiment:300, ether:2, gold:{r17:6000000,r8:12000000,r9:24000000,r10:48000000}, spitum:10, exp:32},
-            {level:28, spiment:300, ether:2, gold:{r17:6000000,r8:12000000,r9:24000000,r10:48000000}, spitum:10, exp:32},
-            {level:29, spiment:300, ether:2, gold:{r17:6000000,r8:12000000,r9:24000000,r10:48000000}, spitum:10, exp:32},
-            {level:30, spiment:300, ether:2, gold:{r17:6000000,r8:12000000,r9:24000000,r10:48000000}, spitum:10, exp:48},
-            {level:31, spiment:400, ether:3, gold:{r17:7000000,r8:14000000,r9:28000000,r10:56000000}, spitum:12, exp:48},
-            {level:32, spiment:400, ether:3, gold:{r17:7000000,r8:14000000,r9:28000000,r10:56000000}, spitum:12, exp:48},
-            {level:33, spiment:400, ether:3, gold:{r17:7000000,r8:14000000,r9:28000000,r10:56000000}, spitum:12, exp:48},
-            {level:34, spiment:400, ether:3, gold:{r17:7000000,r8:14000000,r9:28000000,r10:56000000}, spitum:12, exp:48},
-            {level:35, spiment:400, ether:3, gold:{r17:7000000,r8:14000000,r9:28000000,r10:56000000}, spitum:12, exp:48},
-            {level:36, spiment:400, ether:3, gold:{r17:8000000,r8:16000000,r9:32000000,r10:64000000}, spitum:12, exp:48},
-            {level:37, spiment:400, ether:3, gold:{r17:8000000,r8:16000000,r9:32000000,r10:64000000}, spitum:12, exp:48},
-            {level:38, spiment:400, ether:3, gold:{r17:8000000,r8:16000000,r9:32000000,r10:64000000}, spitum:12, exp:48},
-            {level:39, spiment:400, ether:3, gold:{r17:8000000,r8:16000000,r9:32000000,r10:64000000}, spitum:12, exp:48},
-            {level:40, spiment:400, ether:3, gold:{r17:8000000,r8:16000000,r9:32000000,r10:64000000}, spitum:12, exp:64},
-            {level:41, spiment:400, ether:3, gold:{r17:9000000,r8:18000000,r9:36000000,r10:72000000}, spitum:14, exp:64},
-            {level:42, spiment:400, ether:3, gold:{r17:9000000,r8:18000000,r9:36000000,r10:72000000}, spitum:14, exp:64},
-            {level:43, spiment:400, ether:3, gold:{r17:9000000,r8:18000000,r9:36000000,r10:72000000}, spitum:14, exp:64},
-            {level:44, spiment:400, ether:3, gold:{r17:9000000,r8:18000000,r9:36000000,r10:72000000}, spitum:14, exp:64},
-            {level:45, spiment:400, ether:3, gold:{r17:9000000,r8:18000000,r9:36000000,r10:72000000}, spitum:14, exp:64},
-            {level:46, spiment:400, ether:3, gold:{r17:10000000,r8:20000000,r9:40000000,r10:80000000}, spitum:14, exp:64},
-            {level:47, spiment:400, ether:3, gold:{r17:10000000,r8:20000000,r9:40000000,r10:80000000}, spitum:14, exp:64},
-            {level:48, spiment:400, ether:3, gold:{r17:10000000,r8:20000000,r9:40000000,r10:80000000}, spitum:14, exp:64},
-            {level:49, spiment:400, ether:3, gold:{r17:10000000,r8:20000000,r9:40000000,r10:80000000}, spitum:14, exp:64},
-            {level:50, spiment:400, ether:3, gold:{r17:10000000,r8:20000000,r9:40000000,r10:80000000}, spitum:14, exp:96},
-            {level:51, spiment:400, ether:3, gold:{r17:11000000,r8:22000000,r9:44000000,r10:88000000}, spitum:16, exp:96},
-            {level:52, spiment:400, ether:3, gold:{r17:11000000,r8:22000000,r9:44000000,r10:88000000}, spitum:16, exp:96},
-            {level:53, spiment:400, ether:3, gold:{r17:11000000,r8:22000000,r9:44000000,r10:88000000}, spitum:16, exp:96},
-            {level:54, spiment:400, ether:3, gold:{r17:11000000,r8:22000000,r9:44000000,r10:88000000}, spitum:16, exp:96},
-            {level:55, spiment:400, ether:3, gold:{r17:11000000,r8:22000000,r9:44000000,r10:88000000}, spitum:16, exp:96},
-            {level:56, spiment:400, ether:3, gold:{r17:12000000,r8:24000000,r9:48000000,r10:96000000}, spitum:16, exp:96},
-            {level:57, spiment:400, ether:3, gold:{r17:12000000,r8:24000000,r9:48000000,r10:96000000}, spitum:16, exp:96},
-            {level:58, spiment:400, ether:3, gold:{r17:12000000,r8:24000000,r9:48000000,r10:96000000}, spitum:16, exp:96},
-            {level:59, spiment:400, ether:3, gold:{r17:12000000,r8:24000000,r9:48000000,r10:96000000}, spitum:16, exp:96},
-            {level:60, spiment:400, ether:3, gold:{r17:12000000,r8:24000000,r9:48000000,r10:96000000}, spitum:16, exp:128},
-            {level:61, spiment:500, ether:4, gold:{r17:13000000,r8:26000000,r9:52000000,r10:104000000}, spitum:18, exp:128},
-            {level:62, spiment:500, ether:4, gold:{r17:13000000,r8:26000000,r9:52000000,r10:104000000}, spitum:18, exp:128},
-            {level:63, spiment:500, ether:4, gold:{r17:13000000,r8:26000000,r9:52000000,r10:104000000}, spitum:18, exp:128},
-            {level:64, spiment:500, ether:4, gold:{r17:13000000,r8:26000000,r9:52000000,r10:104000000}, spitum:18, exp:128},
-            {level:65, spiment:500, ether:4, gold:{r17:13000000,r8:26000000,r9:52000000,r10:104000000}, spitum:18, exp:128},
-            {level:66, spiment:500, ether:4, gold:{r17:14000000,r8:28000000,r9:56000000,r10:112000000}, spitum:18, exp:128},
-            {level:67, spiment:500, ether:4, gold:{r17:14000000,r8:28000000,r9:56000000,r10:112000000}, spitum:18, exp:128},
-            {level:68, spiment:500, ether:4, gold:{r17:14000000,r8:28000000,r9:56000000,r10:112000000}, spitum:18, exp:128},
-            {level:69, spiment:500, ether:4, gold:{r17:14000000,r8:28000000,r9:56000000,r10:112000000}, spitum:18, exp:128},
-            {level:70, spiment:500, ether:4, gold:{r17:14000000,r8:28000000,r9:56000000,r10:112000000}, spitum:18, exp:160},
-            {level:71, spiment:500, ether:4, gold:{r17:15000000,r8:30000000,r9:60000000,r10:120000000}, spitum:20, exp:160},
-            {level:72, spiment:500, ether:4, gold:{r17:15000000,r8:30000000,r9:60000000,r10:120000000}, spitum:20, exp:160},
-            {level:73, spiment:500, ether:4, gold:{r17:15000000,r8:30000000,r9:60000000,r10:120000000}, spitum:20, exp:160},
-            {level:74, spiment:500, ether:4, gold:{r17:15000000,r8:30000000,r9:60000000,r10:120000000}, spitum:20, exp:160},
-            {level:75, spiment:500, ether:4, gold:{r17:15000000,r8:30000000,r9:60000000,r10:120000000}, spitum:20, exp:160},
-            {level:76, spiment:500, ether:4, gold:{r17:16000000,r8:32000000,r9:64000000,r10:128000000}, spitum:20, exp:160},
-            {level:77, spiment:500, ether:4, gold:{r17:16000000,r8:32000000,r9:64000000,r10:128000000}, spitum:20, exp:160},
-            {level:78, spiment:500, ether:4, gold:{r17:16000000,r8:32000000,r9:64000000,r10:128000000}, spitum:20, exp:160},
-            {level:79, spiment:500, ether:4, gold:{r17:16000000,r8:32000000,r9:64000000,r10:128000000}, spitum:20, exp:160},
-            {level:80, spiment:500, ether:4, gold:{r17:16000000,r8:32000000,r9:64000000,r10:128000000}, spitum:20, exp:192},
-            {level:81, spiment:500, ether:4, gold:{r17:17000000,r8:34000000,r9:68000000,r10:136000000}, spitum:22, exp:192},
-            {level:82, spiment:500, ether:4, gold:{r17:17000000,r8:34000000,r9:68000000,r10:136000000}, spitum:22, exp:192},
-            {level:83, spiment:500, ether:4, gold:{r17:17000000,r8:34000000,r9:68000000,r10:136000000}, spitum:22, exp:192},
-            {level:84, spiment:500, ether:4, gold:{r17:17000000,r8:34000000,r9:68000000,r10:136000000}, spitum:22, exp:192},
-            {level:85, spiment:500, ether:4, gold:{r17:17000000,r8:34000000,r9:68000000,r10:136000000}, spitum:22, exp:192},
-            {level:86, spiment:500, ether:4, gold:{r17:18000000,r8:36000000,r9:72000000,r10:144000000}, spitum:22, exp:192},
-            {level:87, spiment:500, ether:4, gold:{r17:18000000,r8:36000000,r9:72000000,r10:144000000}, spitum:22, exp:192},
-            {level:88, spiment:500, ether:4, gold:{r17:18000000,r8:36000000,r9:72000000,r10:144000000}, spitum:22, exp:192},
-            {level:89, spiment:500, ether:4, gold:{r17:18000000,r8:36000000,r9:72000000,r10:144000000}, spitum:22, exp:192},
-            {level:90, spiment:500, ether:4, gold:{r17:18000000,r8:36000000,r9:72000000,r10:144000000}, spitum:22, exp:224},
-            {level:91, spiment:500, ether:4, gold:{r17:19000000,r8:38000000,r9:76000000,r10:152000000}, spitum:24, exp:224},
-            {level:92, spiment:500, ether:4, gold:{r17:19000000,r8:38000000,r9:76000000,r10:152000000}, spitum:24, exp:224},
-            {level:93, spiment:500, ether:4, gold:{r17:19000000,r8:38000000,r9:76000000,r10:152000000}, spitum:24, exp:224},
-            {level:94, spiment:500, ether:4, gold:{r17:19000000,r8:38000000,r9:76000000,r10:152000000}, spitum:24, exp:224},
-            {level:95, spiment:500, ether:4, gold:{r17:19000000,r8:38000000,r9:76000000,r10:152000000}, spitum:24, exp:224},
-            {level:96, spiment:500, ether:4, gold:{r17:20000000,r8:40000000,r9:80000000,r10:160000000}, spitum:24, exp:224},
-            {level:97, spiment:500, ether:4, gold:{r17:20000000,r8:40000000,r9:80000000,r10:160000000}, spitum:24, exp:224},
-            {level:98, spiment:500, ether:4, gold:{r17:20000000,r8:40000000,r9:80000000,r10:160000000}, spitum:24, exp:224},
-            {level:99, spiment:500, ether:4, gold:{r17:20000000,r8:40000000,r9:80000000,r10:160000000}, spitum:24, exp:224},
-            {level:100, spiment:0, ether:0, gold:{r17:0,r8:0,r9:0,r10:0}, spitum:0, exp:0}
+            { level: 1, spiment: 200, ether: 1, gold: { r17: 1000000, r8: 2000000, r9: 4000000, r10: 8000000 }, spitum: 1, exp: 8 },
+            { level: 2, spiment: 200, ether: 1, gold: { r17: 1000000, r8: 2000000, r9: 4000000, r10: 8000000 }, spitum: 2, exp: 8 },
+            { level: 3, spiment: 200, ether: 1, gold: { r17: 1000000, r8: 2000000, r9: 4000000, r10: 8000000 }, spitum: 3, exp: 8 },
+            { level: 4, spiment: 200, ether: 1, gold: { r17: 1000000, r8: 2000000, r9: 4000000, r10: 8000000 }, spitum: 4, exp: 8 },
+            { level: 5, spiment: 200, ether: 1, gold: { r17: 1000000, r8: 2000000, r9: 4000000, r10: 8000000 }, spitum: 5, exp: 8 },
+            { level: 6, spiment: 200, ether: 1, gold: { r17: 2000000, r8: 4000000, r9: 8000000, r10: 16000000 }, spitum: 6, exp: 8 },
+            { level: 7, spiment: 200, ether: 1, gold: { r17: 2000000, r8: 4000000, r9: 8000000, r10: 16000000 }, spitum: 7, exp: 8 },
+            { level: 8, spiment: 200, ether: 1, gold: { r17: 2000000, r8: 4000000, r9: 8000000, r10: 16000000 }, spitum: 7, exp: 8 },
+            { level: 9, spiment: 200, ether: 1, gold: { r17: 2000000, r8: 4000000, r9: 8000000, r10: 16000000 }, spitum: 7, exp: 8 },
+            { level: 10, spiment: 200, ether: 1, gold: { r17: 2000000, r8: 4000000, r9: 8000000, r10: 16000000 }, spitum: 7, exp: 16 },
+            { level: 11, spiment: 300, ether: 2, gold: { r17: 3000000, r8: 6000000, r9: 12000000, r10: 24000000 }, spitum: 8, exp: 16 },
+            { level: 12, spiment: 300, ether: 2, gold: { r17: 3000000, r8: 6000000, r9: 12000000, r10: 24000000 }, spitum: 8, exp: 16 },
+            { level: 13, spiment: 300, ether: 2, gold: { r17: 3000000, r8: 6000000, r9: 12000000, r10: 24000000 }, spitum: 8, exp: 16 },
+            { level: 14, spiment: 300, ether: 2, gold: { r17: 3000000, r8: 6000000, r9: 12000000, r10: 24000000 }, spitum: 8, exp: 16 },
+            { level: 15, spiment: 300, ether: 2, gold: { r17: 3000000, r8: 6000000, r9: 12000000, r10: 24000000 }, spitum: 8, exp: 16 },
+            { level: 16, spiment: 300, ether: 2, gold: { r17: 4000000, r8: 8000000, r9: 16000000, r10: 32000000 }, spitum: 8, exp: 16 },
+            { level: 17, spiment: 300, ether: 2, gold: { r17: 4000000, r8: 8000000, r9: 16000000, r10: 32000000 }, spitum: 8, exp: 16 },
+            { level: 18, spiment: 300, ether: 2, gold: { r17: 4000000, r8: 8000000, r9: 16000000, r10: 32000000 }, spitum: 8, exp: 16 },
+            { level: 19, spiment: 300, ether: 2, gold: { r17: 4000000, r8: 8000000, r9: 16000000, r10: 32000000 }, spitum: 8, exp: 16 },
+            { level: 20, spiment: 300, ether: 2, gold: { r17: 4000000, r8: 8000000, r9: 16000000, r10: 32000000 }, spitum: 8, exp: 32 },
+            { level: 21, spiment: 300, ether: 2, gold: { r17: 5000000, r8: 10000000, r9: 20000000, r10: 40000000 }, spitum: 10, exp: 32 },
+            { level: 22, spiment: 300, ether: 2, gold: { r17: 5000000, r8: 10000000, r9: 20000000, r10: 40000000 }, spitum: 10, exp: 32 },
+            { level: 23, spiment: 300, ether: 2, gold: { r17: 5000000, r8: 10000000, r9: 20000000, r10: 40000000 }, spitum: 10, exp: 32 },
+            { level: 24, spiment: 300, ether: 2, gold: { r17: 5000000, r8: 10000000, r9: 20000000, r10: 40000000 }, spitum: 10, exp: 32 },
+            { level: 25, spiment: 300, ether: 2, gold: { r17: 5000000, r8: 10000000, r9: 20000000, r10: 40000000 }, spitum: 10, exp: 32 },
+            { level: 26, spiment: 300, ether: 2, gold: { r17: 6000000, r8: 12000000, r9: 24000000, r10: 48000000 }, spitum: 10, exp: 32 },
+            { level: 27, spiment: 300, ether: 2, gold: { r17: 6000000, r8: 12000000, r9: 24000000, r10: 48000000 }, spitum: 10, exp: 32 },
+            { level: 28, spiment: 300, ether: 2, gold: { r17: 6000000, r8: 12000000, r9: 24000000, r10: 48000000 }, spitum: 10, exp: 32 },
+            { level: 29, spiment: 300, ether: 2, gold: { r17: 6000000, r8: 12000000, r9: 24000000, r10: 48000000 }, spitum: 10, exp: 32 },
+            { level: 30, spiment: 300, ether: 2, gold: { r17: 6000000, r8: 12000000, r9: 24000000, r10: 48000000 }, spitum: 10, exp: 48 },
+            { level: 31, spiment: 400, ether: 3, gold: { r17: 7000000, r8: 14000000, r9: 28000000, r10: 56000000 }, spitum: 12, exp: 48 },
+            { level: 32, spiment: 400, ether: 3, gold: { r17: 7000000, r8: 14000000, r9: 28000000, r10: 56000000 }, spitum: 12, exp: 48 },
+            { level: 33, spiment: 400, ether: 3, gold: { r17: 7000000, r8: 14000000, r9: 28000000, r10: 56000000 }, spitum: 12, exp: 48 },
+            { level: 34, spiment: 400, ether: 3, gold: { r17: 7000000, r8: 14000000, r9: 28000000, r10: 56000000 }, spitum: 12, exp: 48 },
+            { level: 35, spiment: 400, ether: 3, gold: { r17: 7000000, r8: 14000000, r9: 28000000, r10: 56000000 }, spitum: 12, exp: 48 },
+            { level: 36, spiment: 400, ether: 3, gold: { r17: 8000000, r8: 16000000, r9: 32000000, r10: 64000000 }, spitum: 12, exp: 48 },
+            { level: 37, spiment: 400, ether: 3, gold: { r17: 8000000, r8: 16000000, r9: 32000000, r10: 64000000 }, spitum: 12, exp: 48 },
+            { level: 38, spiment: 400, ether: 3, gold: { r17: 8000000, r8: 16000000, r9: 32000000, r10: 64000000 }, spitum: 12, exp: 48 },
+            { level: 39, spiment: 400, ether: 3, gold: { r17: 8000000, r8: 16000000, r9: 32000000, r10: 64000000 }, spitum: 12, exp: 48 },
+            { level: 40, spiment: 400, ether: 3, gold: { r17: 8000000, r8: 16000000, r9: 32000000, r10: 64000000 }, spitum: 12, exp: 64 },
+            { level: 41, spiment: 400, ether: 3, gold: { r17: 9000000, r8: 18000000, r9: 36000000, r10: 72000000 }, spitum: 14, exp: 64 },
+            { level: 42, spiment: 400, ether: 3, gold: { r17: 9000000, r8: 18000000, r9: 36000000, r10: 72000000 }, spitum: 14, exp: 64 },
+            { level: 43, spiment: 400, ether: 3, gold: { r17: 9000000, r8: 18000000, r9: 36000000, r10: 72000000 }, spitum: 14, exp: 64 },
+            { level: 44, spiment: 400, ether: 3, gold: { r17: 9000000, r8: 18000000, r9: 36000000, r10: 72000000 }, spitum: 14, exp: 64 },
+            { level: 45, spiment: 400, ether: 3, gold: { r17: 9000000, r8: 18000000, r9: 36000000, r10: 72000000 }, spitum: 14, exp: 64 },
+            { level: 46, spiment: 400, ether: 3, gold: { r17: 10000000, r8: 20000000, r9: 40000000, r10: 80000000 }, spitum: 14, exp: 64 },
+            { level: 47, spiment: 400, ether: 3, gold: { r17: 10000000, r8: 20000000, r9: 40000000, r10: 80000000 }, spitum: 14, exp: 64 },
+            { level: 48, spiment: 400, ether: 3, gold: { r17: 10000000, r8: 20000000, r9: 40000000, r10: 80000000 }, spitum: 14, exp: 64 },
+            { level: 49, spiment: 400, ether: 3, gold: { r17: 10000000, r8: 20000000, r9: 40000000, r10: 80000000 }, spitum: 14, exp: 64 },
+            { level: 50, spiment: 400, ether: 3, gold: { r17: 10000000, r8: 20000000, r9: 40000000, r10: 80000000 }, spitum: 14, exp: 96 },
+            { level: 51, spiment: 400, ether: 3, gold: { r17: 11000000, r8: 22000000, r9: 44000000, r10: 88000000 }, spitum: 16, exp: 96 },
+            { level: 52, spiment: 400, ether: 3, gold: { r17: 11000000, r8: 22000000, r9: 44000000, r10: 88000000 }, spitum: 16, exp: 96 },
+            { level: 53, spiment: 400, ether: 3, gold: { r17: 11000000, r8: 22000000, r9: 44000000, r10: 88000000 }, spitum: 16, exp: 96 },
+            { level: 54, spiment: 400, ether: 3, gold: { r17: 11000000, r8: 22000000, r9: 44000000, r10: 88000000 }, spitum: 16, exp: 96 },
+            { level: 55, spiment: 400, ether: 3, gold: { r17: 11000000, r8: 22000000, r9: 44000000, r10: 88000000 }, spitum: 16, exp: 96 },
+            { level: 56, spiment: 400, ether: 3, gold: { r17: 12000000, r8: 24000000, r9: 48000000, r10: 96000000 }, spitum: 16, exp: 96 },
+            { level: 57, spiment: 400, ether: 3, gold: { r17: 12000000, r8: 24000000, r9: 48000000, r10: 96000000 }, spitum: 16, exp: 96 },
+            { level: 58, spiment: 400, ether: 3, gold: { r17: 12000000, r8: 24000000, r9: 48000000, r10: 96000000 }, spitum: 16, exp: 96 },
+            { level: 59, spiment: 400, ether: 3, gold: { r17: 12000000, r8: 24000000, r9: 48000000, r10: 96000000 }, spitum: 16, exp: 96 },
+            { level: 60, spiment: 400, ether: 3, gold: { r17: 12000000, r8: 24000000, r9: 48000000, r10: 96000000 }, spitum: 16, exp: 128 },
+            { level: 61, spiment: 500, ether: 4, gold: { r17: 13000000, r8: 26000000, r9: 52000000, r10: 104000000 }, spitum: 18, exp: 128 },
+            { level: 62, spiment: 500, ether: 4, gold: { r17: 13000000, r8: 26000000, r9: 52000000, r10: 104000000 }, spitum: 18, exp: 128 },
+            { level: 63, spiment: 500, ether: 4, gold: { r17: 13000000, r8: 26000000, r9: 52000000, r10: 104000000 }, spitum: 18, exp: 128 },
+            { level: 64, spiment: 500, ether: 4, gold: { r17: 13000000, r8: 26000000, r9: 52000000, r10: 104000000 }, spitum: 18, exp: 128 },
+            { level: 65, spiment: 500, ether: 4, gold: { r17: 13000000, r8: 26000000, r9: 52000000, r10: 104000000 }, spitum: 18, exp: 128 },
+            { level: 66, spiment: 500, ether: 4, gold: { r17: 14000000, r8: 28000000, r9: 56000000, r10: 112000000 }, spitum: 18, exp: 128 },
+            { level: 67, spiment: 500, ether: 4, gold: { r17: 14000000, r8: 28000000, r9: 56000000, r10: 112000000 }, spitum: 18, exp: 128 },
+            { level: 68, spiment: 500, ether: 4, gold: { r17: 14000000, r8: 28000000, r9: 56000000, r10: 112000000 }, spitum: 18, exp: 128 },
+            { level: 69, spiment: 500, ether: 4, gold: { r17: 14000000, r8: 28000000, r9: 56000000, r10: 112000000 }, spitum: 18, exp: 128 },
+            { level: 70, spiment: 500, ether: 4, gold: { r17: 14000000, r8: 28000000, r9: 56000000, r10: 112000000 }, spitum: 18, exp: 160 },
+            { level: 71, spiment: 500, ether: 4, gold: { r17: 15000000, r8: 30000000, r9: 60000000, r10: 120000000 }, spitum: 20, exp: 160 },
+            { level: 72, spiment: 500, ether: 4, gold: { r17: 15000000, r8: 30000000, r9: 60000000, r10: 120000000 }, spitum: 20, exp: 160 },
+            { level: 73, spiment: 500, ether: 4, gold: { r17: 15000000, r8: 30000000, r9: 60000000, r10: 120000000 }, spitum: 20, exp: 160 },
+            { level: 74, spiment: 500, ether: 4, gold: { r17: 15000000, r8: 30000000, r9: 60000000, r10: 120000000 }, spitum: 20, exp: 160 },
+            { level: 75, spiment: 500, ether: 4, gold: { r17: 15000000, r8: 30000000, r9: 60000000, r10: 120000000 }, spitum: 20, exp: 160 },
+            { level: 76, spiment: 500, ether: 4, gold: { r17: 16000000, r8: 32000000, r9: 64000000, r10: 128000000 }, spitum: 20, exp: 160 },
+            { level: 77, spiment: 500, ether: 4, gold: { r17: 16000000, r8: 32000000, r9: 64000000, r10: 128000000 }, spitum: 20, exp: 160 },
+            { level: 78, spiment: 500, ether: 4, gold: { r17: 16000000, r8: 32000000, r9: 64000000, r10: 128000000 }, spitum: 20, exp: 160 },
+            { level: 79, spiment: 500, ether: 4, gold: { r17: 16000000, r8: 32000000, r9: 64000000, r10: 128000000 }, spitum: 20, exp: 160 },
+            { level: 80, spiment: 500, ether: 4, gold: { r17: 16000000, r8: 32000000, r9: 64000000, r10: 128000000 }, spitum: 20, exp: 192 },
+            { level: 81, spiment: 500, ether: 4, gold: { r17: 17000000, r8: 34000000, r9: 68000000, r10: 136000000 }, spitum: 22, exp: 192 },
+            { level: 82, spiment: 500, ether: 4, gold: { r17: 17000000, r8: 34000000, r9: 68000000, r10: 136000000 }, spitum: 22, exp: 192 },
+            { level: 83, spiment: 500, ether: 4, gold: { r17: 17000000, r8: 34000000, r9: 68000000, r10: 136000000 }, spitum: 22, exp: 192 },
+            { level: 84, spiment: 500, ether: 4, gold: { r17: 17000000, r8: 34000000, r9: 68000000, r10: 136000000 }, spitum: 22, exp: 192 },
+            { level: 85, spiment: 500, ether: 4, gold: { r17: 17000000, r8: 34000000, r9: 68000000, r10: 136000000 }, spitum: 22, exp: 192 },
+            { level: 86, spiment: 500, ether: 4, gold: { r17: 18000000, r8: 36000000, r9: 72000000, r10: 144000000 }, spitum: 22, exp: 192 },
+            { level: 87, spiment: 500, ether: 4, gold: { r17: 18000000, r8: 36000000, r9: 72000000, r10: 144000000 }, spitum: 22, exp: 192 },
+            { level: 88, spiment: 500, ether: 4, gold: { r17: 18000000, r8: 36000000, r9: 72000000, r10: 144000000 }, spitum: 22, exp: 192 },
+            { level: 89, spiment: 500, ether: 4, gold: { r17: 18000000, r8: 36000000, r9: 72000000, r10: 144000000 }, spitum: 22, exp: 192 },
+            { level: 90, spiment: 500, ether: 4, gold: { r17: 18000000, r8: 36000000, r9: 72000000, r10: 144000000 }, spitum: 22, exp: 224 },
+            { level: 91, spiment: 500, ether: 4, gold: { r17: 19000000, r8: 38000000, r9: 76000000, r10: 152000000 }, spitum: 24, exp: 224 },
+            { level: 92, spiment: 500, ether: 4, gold: { r17: 19000000, r8: 38000000, r9: 76000000, r10: 152000000 }, spitum: 24, exp: 224 },
+            { level: 93, spiment: 500, ether: 4, gold: { r17: 19000000, r8: 38000000, r9: 76000000, r10: 152000000 }, spitum: 24, exp: 224 },
+            { level: 94, spiment: 500, ether: 4, gold: { r17: 19000000, r8: 38000000, r9: 76000000, r10: 152000000 }, spitum: 24, exp: 224 },
+            { level: 95, spiment: 500, ether: 4, gold: { r17: 19000000, r8: 38000000, r9: 76000000, r10: 152000000 }, spitum: 24, exp: 224 },
+            { level: 96, spiment: 500, ether: 4, gold: { r17: 20000000, r8: 40000000, r9: 80000000, r10: 160000000 }, spitum: 24, exp: 224 },
+            { level: 97, spiment: 500, ether: 4, gold: { r17: 20000000, r8: 40000000, r9: 80000000, r10: 160000000 }, spitum: 24, exp: 224 },
+            { level: 98, spiment: 500, ether: 4, gold: { r17: 20000000, r8: 40000000, r9: 80000000, r10: 160000000 }, spitum: 24, exp: 224 },
+            { level: 99, spiment: 500, ether: 4, gold: { r17: 20000000, r8: 40000000, r9: 80000000, r10: 160000000 }, spitum: 24, exp: 224 },
+            { level: 100, spiment: 0, ether: 0, gold: { r17: 0, r8: 0, r9: 0, r10: 0 }, spitum: 0, exp: 0 }
         ];
 
         function formatNumber(num) {
@@ -437,7 +453,7 @@
         function initLevelDropdowns() {
             const currentLevel = document.getElementById('currentLevel');
             const targetLevel = document.getElementById('targetLevel');
-            
+
             for (let i = 1; i <= 99; i++) {
                 const option = document.createElement('option');
                 option.value = i;
@@ -599,7 +615,7 @@
             document.getElementById('resultTotal').textContent = formatGold(totalCost);
         }
 
-        document.getElementById('currentLevel').addEventListener('change', function() {
+        document.getElementById('currentLevel').addEventListener('change', function () {
             updateMaxExp();
             calculate();
         });
@@ -618,4 +634,5 @@
         initLevelDropdowns();
     </script>
 </body>
+
 </html>
